@@ -1,4 +1,4 @@
-class CreateBlacklightFoldersFolderItems < ActiveRecord::Migration
+class CreateBlacklightFoldersFolderItems < ActiveRecord::Migration[7.0]
 
   def change
     create_table :blacklight_folders_folder_items do |t|
