@@ -16,7 +16,7 @@ module Blacklight::Folders
     end
 
     def search_action_url options = {}
-      main_app.search_catalog_path
+      main_app.search_catalog_url(options)
     end
 
   private
