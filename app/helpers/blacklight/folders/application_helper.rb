@@ -15,7 +15,7 @@ module Blacklight::Folders
       end
     end
 
-    def search_action_url(*args)
+    def search_action_url options = {}
       main_app.search_catalog_url(options.to_h.except(:controller, :action))
     end
 
