@@ -15,9 +15,9 @@ module Blacklight::Folders
       end
     end
 
-    def search_action_url(*args)
-      main_app.catalog_index_url *args
-    end
+    #def search_action_url(*args)
+    #  main_app.catalog_index_url *args
+    #end
 
   private
 
