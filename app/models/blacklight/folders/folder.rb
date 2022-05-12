@@ -44,7 +44,8 @@ module Blacklight::Folders
 
         search_builder = blacklight_config.search_builder_class.new([], self)
         query = search_builder.
-                where(blacklight_config.document_model.unique_key => doc_ids).
+                #where(blacklight_config.document_model.unique_key => doc_ids).
+                merge('q' => doc_ids).
                 merge(fl: '*')
         solr_response = solr_repository.search(query).tap do |response|
           response.order = doc_ids
@@ -75,7 +76,7 @@ module Blacklight::Folders
       end
 
       def solr_repository
-        @solr_repo ||= Blacklight::SolrRepository.new(blacklight_config)
+        @solr_repo ||= Blacklight::Solr::Repository.new(blacklight_config)
       end
 
       def blacklight_config
