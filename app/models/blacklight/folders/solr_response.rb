@@ -1,5 +1,5 @@
 module Blacklight::Folders
-  class SolrResponse < Blacklight::SolrResponse
+  class SolrResponse < Blacklight::Solr::Response
     attr_reader :doc_ids, :document_model
 
     def docs
