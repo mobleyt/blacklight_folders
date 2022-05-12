@@ -6,8 +6,8 @@ module Blacklight::Folders
     include Blacklight::SearchContext
 
     load_and_authorize_resource class: Blacklight::Folders::Folder, except: [:add_bookmarks, :remove_bookmarks]
-    before_filter :load_and_authorize_folder, only: [:add_bookmarks, :remove_bookmarks]
-    before_filter :clear_session_search_params, only: [:show]
+    before_action :load_and_authorize_folder, only: [:add_bookmarks, :remove_bookmarks]
+    before_action :clear_session_search_params, only: [:show]
 
     def index
       @folders = if current_or_guest_user.new_record?
