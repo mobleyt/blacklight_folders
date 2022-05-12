@@ -74,9 +74,9 @@ module Blacklight::Folders
 
       if @folder.save
         message = doc_ids.size == 1 ? t(:'helpers.submit.folder.added_one', folder_name: @folder.name) : t(:'helpers.submit.folder.added_many', folder_name: @folder.name)
-        redirect_to :back, notice: message
+        redirect_back(fallback_location: folder_path(@folder.id), notice: message )
       else
-        redirect_to :back, alert: 'Unable to save bookmarks.'
+        redirect_back(fallback_location: folder_path(@folder.id), alert: 'Unable to save bookmarks.' )
       end
     end
 
